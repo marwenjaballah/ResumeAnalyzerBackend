@@ -5,23 +5,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add CORS service
 builder.Services.AddCors(options =>
 {
-	options.AddPolicy("AllowNextJsApp",
-		builder =>
-		{
-			builder.WithOrigins("http://localhost:3000/")
-				.AllowAnyMethod()
-				.AllowAnyHeader();
-		});
-});
-builder.Services.AddCors(options =>
-{
-	options.AddPolicy("AllowNextJsApp",
-		builder =>
-		{
-			builder.WithOrigins("https://ai-resume-analyzer-beryl.vercel.app/")
-				.AllowAnyMethod()
-				.AllowAnyHeader();
-		});
+	options.AddPolicy("AllowNextJsApp", builder =>
+	{
+		builder.WithOrigins(
+				"http://localhost:3000", // <--- NO TRAILING SLASH!
+				"https://ai-resume-analyzer-beryl.vercel.app"
+			)
+			.AllowAnyMethod()
+			.AllowAnyHeader();
+	});
 });
 
 // Add services
