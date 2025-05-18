@@ -8,7 +8,17 @@ builder.Services.AddCors(options =>
 	options.AddPolicy("AllowNextJsApp",
 		builder =>
 		{
-			builder.WithOrigins("http://localhost:3000")
+			builder.WithOrigins("http://localhost:3000/")
+				.AllowAnyMethod()
+				.AllowAnyHeader();
+		});
+});
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowNextJsApp",
+		builder =>
+		{
+			builder.WithOrigins("https://ai-resume-analyzer-beryl.vercel.app/")
 				.AllowAnyMethod()
 				.AllowAnyHeader();
 		});
