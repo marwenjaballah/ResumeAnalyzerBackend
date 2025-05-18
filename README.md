@@ -115,7 +115,6 @@ cd ResumeAnalyzerBackend
 dotnet run
 ```
 
-4. Open your browser at http://localhost:5207/swagger
 
 ## Deployment
 
@@ -128,7 +127,7 @@ dotnet run
 
 CORS is enabled for:
 - http://localhost:3000 (local Next.js)
-- https://ai-resume-analyzer-beryl.vercel.app (your production frontend)
+- https://ai-resume-analyzer-beryl.vercel.app 
 
 Change these in Program.cs if your frontend domain changes.
 
